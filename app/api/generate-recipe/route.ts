@@ -1,4 +1,7 @@
-import { generateText } from "ai"
+import { convertToCoreMessages, smoothStream, generateText } from "ai";
+import { NextRequest, NextResponse } from "next/server";
+import { groq } from "@ai-sdk/groq";
+import z from "zod";
 
 export async function POST(req: Request) {
   try {
@@ -24,7 +27,7 @@ Please provide a JSON response with this exact structure:
 }`
 
     const { text } = await generateText({
-      model: "openai/gpt-4o-mini",
+      model: groq('qwen/qwen3-32b'),
       prompt,
     })
 
@@ -42,3 +45,5 @@ Please provide a JSON response with this exact structure:
     return Response.json({ error: "Failed to generate recipe" }, { status: 500 })
   }
 }
+
+
