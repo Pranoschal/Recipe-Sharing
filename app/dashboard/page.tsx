@@ -49,16 +49,14 @@ export default async function DashboardPage() {
       {/* Header */}
       <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center justify-between gap-4">
-            <div className="flex-shrink-0">
+          <div className="flex items-center justify-between">
+            <div>
               <h1 className="text-2xl font-bold text-orange-600">Recipe Share</h1>
             </div>
-            <div className="flex items-center gap-2 sm:gap-4 flex-wrap justify-end">
-              <span className="text-sm text-muted-foreground min-w-0 break-all max-w-[200px] sm:max-w-none">
-                {profile?.username || user.email}
-              </span>
+            <div className="flex items-center gap-4">
+              <span className="text-sm text-muted-foreground">{profile?.username}</span>
               <form action={handleSignOut}>
-                <Button variant="outline" size="sm" className="whitespace-nowrap bg-transparent">
+                <Button variant="outline" size="sm">
                   Sign Out
                 </Button>
               </form>

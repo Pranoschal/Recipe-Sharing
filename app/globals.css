@@ -124,21 +124,24 @@
     @apply bg-background text-foreground;
   }
 
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Safari + Chrome scrollbar remove */
   ::-webkit-scrollbar {
-    width: 0px;
-    height: 0px;
+    width: 0 !important;
+    height: 0 !important;
+    background: transparent !important;
   }
-  
-  ::-webkit-scrollbar-track {
-    background: transparent;
+
+  /* Firefox */
+  * {
+    scrollbar-width: none; /* hides scrollbar in Firefox */
   }
-  
-  ::-webkit-scrollbar-thumb {
-    background: oklch(0.439 0 0);
-    border-radius: 3px;
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
-    background: oklch(0.556 0 0);
+
+  /* Extra Safari fix */
+  *::-webkit-scrollbar {
+    display: none; /* Safari still requires this */
   }
 }
